@@ -1,0 +1,54 @@
+import random
+import sys
+class ATM:
+    q=0
+    def __init__(self,n):
+        print("_______ACCOUNT CREATED_______")
+        self.n=random.randint(1000,10000)
+        print("the pin is ",self.n)
+        print("Enter the above PIN")
+    def check(self):
+        k=int(input())
+        if k==self.n:
+            print("pin is verified")
+            return 'y'
+        else:
+            print("incorrect pin")
+    def credit(self):
+        p=int(input("enter the amount to deposit : "))
+        ATM.q+=p
+        print("Deposited amount is : ",p)
+        print("The total amount is : ",ATM.q)
+    def debit(self):
+        p=float(input("enter the amount to debit : "))
+        if ATM.q>=p:
+            ATM.q-=p
+            print("THe debited amount is : ",p)
+        else:
+            print("balance is insufficient.")
+    def bal_enq(self):
+        print("THe balance in u r account is : ",ATM.q)
+ob=ATM(5000)
+m=ob.check()
+while(m=='y'):
+    print("1.credit")
+    print("2.debit")
+    print("3.bal_enq")
+    print("4.exit")
+    print("Enter u r choice : ")
+    l=int(input())
+    if (l==1):
+        ob.credit()
+    elif (l==2):
+        ob.debit()
+    elif(l==3):
+        ob.bal_enq()
+    else:
+        sys.exit(0)
+    ch=input("do u want to continue (y/n) : ")
+    if ch!='y':
+        break
+        
+        
+        
+              
